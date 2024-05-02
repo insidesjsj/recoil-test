@@ -1,9 +1,10 @@
 import {FC} from 'react';
-import {useRecoilState} from 'recoil';
+import {useRecoilState, useRecoilValue, useSetRecoilState} from 'recoil';
 import {countState} from './recoilState';
 
 const Counter: FC = () => {
-    const [count, setCount] = useRecoilState(countState)
+    const count = useRecoilValue(countState)
+    const setCount = useSetRecoilState(countState)
 
     const increment = () => {
         setCount(count + 1)
