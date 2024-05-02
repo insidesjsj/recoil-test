@@ -3,6 +3,7 @@ import './App.css';
 import Counter from './Counter';
 import MyComponent from './MyComponent';
 import MyComponent2 from './MyComponent2';
+import Github from './Github';
 
 function App() {
     return (
@@ -11,6 +12,7 @@ function App() {
             <br/>
             <MyComponent />
             <MyComponent2 />
+            <Github />
         </div>
     );
 }

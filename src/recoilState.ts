@@ -1,4 +1,5 @@
-import {atom, selector} from 'recoil';
+import {atom, selector, selectorFamily} from 'recoil';
+import axios from 'axios';
 
 export const countState = atom({
     key: 'countState',  // 상태를 식별하는 고유한 키
@@ -46,5 +47,17 @@ export const dataSelector = selector({
         } catch (error) {
             throw new Error('Failed to fetch data')
         }
+    },
+})
+
+export const githubRepo = selectorFamily({
+    key: "github/get",
+    get: (githubId) => async () => {
+        if (!githubId) return ""
+
+        const { data } = await axios.get(
+            `https://api.github.com/repos/${String(githubId)}`
+        )
+        return data
     },
 })
